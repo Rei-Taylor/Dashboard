@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    .container {
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Company Information</h5>
+          <p class="card-text">Company: XYZ Corp</p>
+          <p class="card-text">Items: Item1, Item2, Item3</p>
+          <p class="card-text">Total Quantity: 100</p>
+          <p class="card-text">Total Weight: 2500 kg</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Income</h5>
+          <p class="card-text">$10,000</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <canvas id="myChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  var ctx = document.getElementById('myChart').getContext('2d');
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Item1', 'Item2', 'Item3'],
+      datasets: [{
+        label: 'Quantity',
+        data: [30, 40, 30],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
